@@ -4,11 +4,7 @@ import PropTypes from "prop-types";
 export const PlanetCard = props => {
 	return (
 		<div className="card m-3" style={{ width: "18rem" }}>
-			<img
-				src="http://via.placeholder.com/400x200"
-				className="card-img-top"
-				alt="..."
-			/>
+			<img src="http://via.placeholder.com/400x200" className="card-img-top" alt="..." />
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
 				<p className="card-text textCustom">

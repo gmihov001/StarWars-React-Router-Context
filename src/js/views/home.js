@@ -12,32 +12,32 @@ export class Home extends React.Component {
 		};
 	}
 
-	componentDidMount = () => {
-		fetch("https://swapi.dev/api/people/?format=json")
-			.then(res => res.json())
-			.then(response => {
-				if (typeof response === typeof {}) {
-					this.setState({ characters: response.results });
-				} else {
-					this.setState({ characters: [] });
-				}
-			})
-			.catch(error => console.error("Error:", error));
+	// componentDidMount = () => {
+	// 	fetch("https://swapi.dev/api/people/?format=json")
+	// 		.then(res => res.json())
+	// 		.then(response => {
+	// 			if (typeof response === typeof {}) {
+	// 				this.setState({ characters: response.results });
+	// 			} else {
+	// 				this.setState({ characters: [] });
+	// 			}
+	// 		})
+	// 		.catch(error => console.error("Error:", error));
 
-		fetch("https://swapi.dev/api/planets/?format=json")
-			.then(res => res.json())
-			.then(response => {
-				console.log("Success:", typeof response);
-				//console.log(response);
-				if (typeof response === typeof {}) {
-					this.setState({ planets: response.results });
-				} else {
-					this.setState({ planets: [] });
-				}
-			})
+	// 	fetch("https://swapi.dev/api/planets/?format=json")
+	// 		.then(res => res.json())
+	// 		.then(response => {
+	// 			console.log("Success:", typeof response);
+	// 			//console.log(response);
+	// 			if (typeof response === typeof {}) {
+	// 				this.setState({ planets: response.results });
+	// 			} else {
+	// 				this.setState({ planets: [] });
+	// 			}
+	// 		})
 
-			.catch(error => console.error("Error:", error));
-	};
+	// 		.catch(error => console.error("Error:", error));
+	// };
 
 	render() {
 		return (

@@ -1,22 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext.jsx";
+import { Context } from "../store/appContext";
 
 export class Details extends React.Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 		this.state = {
 			results: null
 		};
 	}
 
 	componentDidMount = () => {
-		fetch(
-			"https://swapi.co/api/people/" +
-				this.props.match.params.theid +
-				"?format=json"
-		)
+		fetch("https://swapi.co/api/people/" + this.props.match.params.id + "?format=json")
 			.then(res => res.json())
 			.then(response => {
 				//console.log("Success:", typeof response);
@@ -45,9 +41,7 @@ export class Details extends React.Component {
 					<div className="col-6">
 						<div className="text-center m-3">
 							<h2>{this.state.results.name}</h2>
-							<p>
-								Sed ut perspiciatis 
-							</p>
+							<p>Sed ut perspiciatis</p>
 						</div>
 					</div>
 				</div>
@@ -59,9 +53,7 @@ export class Details extends React.Component {
 						</div>
 						<div className="affiliations m-3 p-2">
 							<h6>Birth Year</h6>
-							<p className="text-center">
-								{this.state.results.birth_year}
-							</p>
+							<p className="text-center">{this.state.results.birth_year}</p>
 						</div>
 						<div className="locations p-2 m-3">
 							<h6>Gender</h6>
@@ -73,9 +65,7 @@ export class Details extends React.Component {
 						</div>
 						<div className="dimensions p-2 m-3">
 							<h6>Skin Color</h6>
-							<p className="text-center">
-								{this.state.results.skin_color}
-							</p>
+							<p className="text-center">{this.state.results.skin_color}</p>
 						</div>
 						<div className="species p-2 m-3">
 							<h6>Eye Color</h6>

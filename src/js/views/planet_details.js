@@ -10,11 +10,7 @@ export class PlanetDetails extends React.Component {
 	}
 
 	componentDidMount = () => {
-		fetch(
-			"https://swapi.co/api/planets/" +
-				this.props.match.params.theid +
-				"?format=json"
-		)
+		fetch("https://swapi.co/api/planets/" + this.props.match.params.theid + "?format=json")
 			.then(res => res.json())
 			.then(response => {
 				console.log("Success:", typeof response);
@@ -43,9 +39,7 @@ export class PlanetDetails extends React.Component {
 					<div className="col-6 background">
 						<div className="text-center m-3">
 							<h2>{this.state.planets.name}</h2>
-							<p>
-								Sed ut perspiciatis 
-							</p>
+							<p>Sed ut perspiciatis</p>
 						</div>
 					</div>
 				</div>
@@ -57,9 +51,7 @@ export class PlanetDetails extends React.Component {
 						</div>
 						<div className="affiliations m-3 p-2">
 							<h6>Climate</h6>
-							<p className="text-center">
-								{this.state.planets.climate}
-							</p>
+							<p className="text-center">{this.state.planets.climate}</p>
 						</div>
 						<div className="locations p-2 m-3">
 							<h6>Population</h6>
@@ -71,9 +63,7 @@ export class PlanetDetails extends React.Component {
 						</div>
 						<div className="dimensions p-2 m-3">
 							<h6>Rotation Period</h6>
-							<p className="text-center">
-								{this.state.planets.rotation_period}
-							</p>
+							<p className="text-center">{this.state.planets.rotation_period}</p>
 						</div>
 						<div className="species p-2 m-3">
 							<h6>Diameter</h6>

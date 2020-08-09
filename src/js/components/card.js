@@ -1,14 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { Link } from "react-router-dom";
 
 export const CharacterCard = props => {
 	return (
 		<div className="card m-3" style={{ width: "18rem" }}>
-			<img
-				src="http://via.placeholder.com/400x200"
-				className="card-img-top"
-				alt="..."
-			/>
+			<img src="http://via.placeholder.com/400x200" className="card-img-top" alt="..." />
 			<div className="card-body">
 				<h5 className="card-title">{props.name}</h5>
 				<p className="card-text">
@@ -19,11 +16,11 @@ export const CharacterCard = props => {
 					Eye-Color: {props.eye_color}
 				</p>
 				<div className="d-flex justify-content-between">
-					{/* <Link to={`/details/${props.index + 1}`}>
+					<Link to={`/details/${props.index + 1}`}>
 						<a href="#" className="btn  btn-outline-primary">
 							Learn more!
 						</a>
-					</Link> */}
+					</Link>
 					{/* {const isFav = store.favorites.find( f => f.name ==
 					props.name )}  */}
 					<button
