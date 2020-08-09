@@ -1,15 +1,90 @@
 import React from "react";
-import rigoImage from "../../img/rigo-baby.jpg";
-import "../../styles/home.scss";
+import { CharacterCard } from "../components/card";
+import { PlanetCard } from "../components/planet_card";
+import PropTypes from "prop-types";
 
-export const Home = () => (
-	<div className="text-center mt-5">
-		<h1>Hello Rigo!</h1>
-		<p>
-			<img src={rigoImage} />
-		</p>
-		<a href="#" className="btn btn-success">
-			If you see this green button, bootstrap is working
-		</a>
-	</div>
-);
+export class Home extends React.Component {
+	constructor() {
+		super();
+		this.state = {
+			characters: [],
+			planets: []
+		};
+	}
+
+	componentDidMount = () => {
+		fetch("https://swapi.dev/api/people/?format=json")
+			.then(res => res.json())
+			.then(response => {
+				if (typeof response === typeof {}) {
+					this.setState({ characters: response.results });
+				} else {
+					this.setState({ characters: [] });
+				}
+			})
+			.catch(error => console.error("Error:", error));
+
+		fetch("https://swapi.dev/api/planets/?format=json")
+			.then(res => res.json())
+			.then(response => {
+				console.log("Success:", typeof response);
+				//console.log(response);
+				if (typeof response === typeof {}) {
+					this.setState({ planets: response.results });
+				} else {
+					this.setState({ planets: [] });
+				}
+			})
+
+			.catch(error => console.error("Error:", error));
+	};
+
+	render() {
+		return (
+			<div className="container">
+				<div className="row scroller">
+					<h3 className="m-3">Characters</h3>
+					<div className="card-columns d-flex justify-content-between">
+						{this.state.characters.map((elem, index) => {
+							return (
+								<CharacterCard
+									key={index}
+									name={elem.name}
+									gender={elem.gender}
+									eye_color={elem.eye_color}
+									hair_color={elem.hair_color}
+									index={index}
+								/>
+							);
+						})}
+					</div>
+				</div>
+				<div className="row scroller">
+					<h3 className="m-3">Planets</h3>
+					<div className="card-columns d-flex justify-content-between">
+						{this.state.planets.map((elem, index) => {
+							return (
+								<PlanetCard
+									className="textCustom"
+									key={index}
+									name={elem.name}
+									population={elem.population}
+									terrain={elem.terrain}
+									index={index}
+								/>
+							);
+						})}
+					</div>
+				</div>
+			</div>
+		);
+	}
+}
+
+// Card.propTypes = {
+// 	name: PropTypes.string,
+// 	species: PropTypes.array,
+// 	gender: PropTypes.string,
+// 	eye_color: PropTypes.string,
+// 	hair_color: PropTypes.string
+// };
