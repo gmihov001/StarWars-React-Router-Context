@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
 
 export const CharacterCard = props => {
 	return (
@@ -31,19 +32,19 @@ export const CharacterCard = props => {
 							Learn more!
 						</a>
 					</Link>
-					{/* {const isFav = store.favorites.find( f => f.name ==
-					props.name )}  */}
-					<button
-						type="button"
-						className="btn btn-outline-warning"
-						onClick={() => this.addToFavorites(props.name)}>
-						{/* {isFav ? (
-							<i className="fas fa-heart" />
-						) : (
-							<i className="far fa-heart" />
-						)} */}
-					</button>
-					);
+					<Context.Consumer>
+						{({ actions, store }) => {
+							const isFav = store.favorites.find(f => f.name == props.name);
+							return (
+								<button
+									type="button"
+									className="btn btn-outline-warning"
+									onClick={() => actions.addToFavorites(props.name)}>
+									{isFav ? <i className="fas fa-heart" /> : <i className="far fa-heart" />}
+								</button>
+							);
+						}}
+					</Context.Consumer>
 				</div>
 			</div>
 		</div>
