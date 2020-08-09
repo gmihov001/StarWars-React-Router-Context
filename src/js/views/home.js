@@ -12,32 +12,31 @@ export class Home extends React.Component {
 		};
 	}
 
-	// componentDidMount = () => {
-	// 	fetch("https://swapi.dev/api/people/?format=json")
-	// 		.then(res => res.json())
-	// 		.then(response => {
-	// 			if (typeof response === typeof {}) {
-	// 				this.setState({ characters: response.results });
-	// 			} else {
-	// 				this.setState({ characters: [] });
-	// 			}
-	// 		})
-	// 		.catch(error => console.error("Error:", error));
+	componentDidMount = () => {
+		fetch("https://swapi.dev/api/people/?format=json")
+			.then(res => res.json())
+			.then(response => {
+				if (typeof response === typeof {}) {
+					this.setState({ characters: response.results });
+				} else {
+					this.setState({ characters: [] });
+				}
+			})
+			.catch(error => console.error("Error:", error));
 
-	// 	fetch("https://swapi.dev/api/planets/?format=json")
-	// 		.then(res => res.json())
-	// 		.then(response => {
-	// 			console.log("Success:", typeof response);
-	// 			//console.log(response);
-	// 			if (typeof response === typeof {}) {
-	// 				this.setState({ planets: response.results });
-	// 			} else {
-	// 				this.setState({ planets: [] });
-	// 			}
-	// 		})
-
-	// 		.catch(error => console.error("Error:", error));
-	// };
+		fetch("https://swapi.dev/api/planets/?format=json")
+			.then(res => res.json())
+			.then(response => {
+				console.log("Success:", typeof response);
+				//console.log(response);
+				if (typeof response === typeof {}) {
+					this.setState({ planets: response.results });
+				} else {
+					this.setState({ planets: [] });
+				}
+			})
+			.catch(error => console.error("Error:", error));
+	};
 
 	render() {
 		return (
@@ -46,16 +45,7 @@ export class Home extends React.Component {
 					<h3 className="m-3">Characters</h3>
 					<div className="card-columns d-flex justify-content-between">
 						{this.state.characters.map((elem, index) => {
-							return (
-								<CharacterCard
-									key={index}
-									name={elem.name}
-									gender={elem.gender}
-									eye_color={elem.eye_color}
-									hair_color={elem.hair_color}
-									index={index}
-								/>
-							);
+							return <CharacterCard key={index} character={elem} index={index} />;
 						})}
 					</div>
 				</div>
@@ -63,16 +53,7 @@ export class Home extends React.Component {
 					<h3 className="m-3">Planets</h3>
 					<div className="card-columns d-flex justify-content-between">
 						{this.state.planets.map((elem, index) => {
-							return (
-								<PlanetCard
-									className="textCustom"
-									key={index}
-									name={elem.name}
-									population={elem.population}
-									terrain={elem.terrain}
-									index={index}
-								/>
-							);
+							return <PlanetCard className="textCustom" key={index} planet={elem} index={index} />;
 						})}
 					</div>
 				</div>

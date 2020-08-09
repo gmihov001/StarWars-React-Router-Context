@@ -17,35 +17,11 @@ class Layout extends React.Component {
 	constructor() {
 		super();
 		this.basename = process.env.BASENAME || "";
-		this.state = {};
+		this.state = {
+			characters: [],
+			planets: []
+		};
 	}
-
-	componentDidMount = () => {
-		fetch("https://swapi.dev/api/people/?format=json")
-			.then(res => res.json())
-			.then(response => {
-				if (typeof response === typeof {}) {
-					this.setState({ characters: response.results });
-				} else {
-					this.setState({ characters: [] });
-				}
-			})
-			.catch(error => console.error("Error:", error));
-
-		fetch("https://swapi.dev/api/planets/?format=json")
-			.then(res => res.json())
-			.then(response => {
-				console.log("Success:", typeof response);
-				//console.log(response);
-				if (typeof response === typeof {}) {
-					this.setState({ planets: response.results });
-				} else {
-					this.setState({ planets: [] });
-				}
-			})
-
-			.catch(error => console.error("Error:", error));
-	};
 
 	//the basename is used when your project is published in a subdirectory and not in the root of the domain
 	// you can set the basename on the .env file located at the root of this project, E.g: BASENAME=/react-hello-webapp/
@@ -60,12 +36,14 @@ class Layout extends React.Component {
 							<Route exact path="/">
 								<Home />
 							</Route>
+							<Route exact path="/home">
+								<Home />
+							</Route>
 							<Route exact path="/demo">
 								<Demo />
 							</Route>
-							<Route exact path="/details/:id">
-								<Details />
-							</Route>
+							<Route path="/details/:id" component={Details} />
+
 							<Route exact path="/planet_details">
 								<PlanetDetails />
 							</Route>
