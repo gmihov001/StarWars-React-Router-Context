@@ -28,18 +28,19 @@ export const CharacterCard = props => {
 								character: props.character
 							}
 						}}>
-						<a href="#" className="btn  btn-outline-primary">
+						<button href="#" className="btn  btn-outline-primary">
 							Learn more!
-						</a>
+						</button>
 					</Link>
 					<Context.Consumer>
 						{({ actions, store }) => {
-							const isFav = store.favorites.find(f => f.name == props.name);
+							const isFav = store.favorites.find(f => f.name == props.character.name);
+							console.log("isFav: ", isFav);
 							return (
 								<button
 									type="button"
 									className="btn btn-outline-warning"
-									onClick={() => actions.addToFavorites(props.name)}>
+									onClick={isFav ? null : () => actions.addToFavorites(props.character.name)}>
 									{isFav ? <i className="fas fa-heart" /> : <i className="far fa-heart" />}
 								</button>
 							);

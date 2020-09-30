@@ -21,13 +21,13 @@ export class Navbar extends React.Component {
 						<div className="container">
 							<Link className="navbar-brand text-white" to="/">
 								<img
-									src="http://allfreeprintable.com/cont/sgn/img/free-printable-star-wars-logo.jpg"
+									src="https://3dwarehouse.sketchup.com/warehouse/v1.0/publiccontent/cfd241b0-85a3-4363-87b1-51c6732af3fd"
 									height="100px;"
 									width="auto;"
 								/>
 							</Link>
 							<a className={"nav-item dropdown " + (this.state.showDropdown ? "show" : "")}>
-								<a
+								<button
 									className="btn btn-primary nav-link dropdown-toggle"
 									href="#"
 									id="navbarDropdown"
@@ -41,21 +41,21 @@ export class Navbar extends React.Component {
 										})
 									}>
 									Favorites <span className="badge badge-secondary">{store.favorites.length}</span>
-								</a>
-								<div className={"dropdown-menu " + show} aria-labelledby="navbarDropdown">
-									{store.favorites.length > 0 ? (
-										store.favorites.map((elm, index) => (
-											<li key={index} className="dropdown-item">
-												<Link to={`/details/${index + 1}`}>{elm.name}</Link>
-												<i
-													className="fas fa-trash"
-													onClick={() => actions.deleteFromFavorites(elm)}
-												/>
-											</li>
-										))
-									) : (
-										<li className="dropdown-item text-center">(empty)</li>
-									)}
+								</button>
+								<div
+									className={store.favorites.length > 0 ? "dropdown-menu " + show : "d-none"}
+									aria-labelledby="navbarDropdown">
+									{store.favorites.length > 0
+										? store.favorites.map((elm, index) => (
+												<li key={index} className="dropdown-item">
+													<Link to={`/details/${index + 1}`}>{elm.name}</Link>
+													<i
+														className="fas fa-trash"
+														onClick={() => actions.deleteFromFavorites(elm)}
+													/>
+												</li>
+										  ))
+										: null}
 								</div>
 							</a>
 						</div>

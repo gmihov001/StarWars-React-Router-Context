@@ -4,10 +4,10 @@ const getState = ({ getStore, setStore }) => {
 			favorites: []
 		},
 		actions: {
-			addToFavorites: koala => {
+			addToFavorites: name => {
 				var tempStore = getStore();
 				var newFavorite = {
-					name: koala
+					name: name
 				};
 				tempStore.favorites.push(newFavorite);
 				setStore({ tempStore });

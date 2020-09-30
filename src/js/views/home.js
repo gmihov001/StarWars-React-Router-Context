@@ -43,7 +43,7 @@ export class Home extends React.Component {
 			<div className="container">
 				<div className="row scroller">
 					<h3 className="m-3">Characters</h3>
-					<div className="card-columns d-flex justify-content-between">
+					<div className="card-columns">
 						{this.state.characters.map((elem, index) => {
 							return <CharacterCard key={index} character={elem} index={index} />;
 						})}
@@ -51,7 +51,7 @@ export class Home extends React.Component {
 				</div>
 				<div className="row scroller">
 					<h3 className="m-3">Planets</h3>
-					<div className="card-columns d-flex justify-content-between">
+					<div className="card-columns">
 						{this.state.planets.map((elem, index) => {
 							return <PlanetCard className="textCustom" key={index} planet={elem} index={index} />;
 						})}
