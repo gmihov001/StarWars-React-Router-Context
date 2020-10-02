@@ -18,7 +18,11 @@ const getState = ({ getStore, setStore }) => {
 			},
 			loadPlanets: () => {
 				fetch("https://swapi.dev/api/planets/")
-					.then(response => response.json())
+                    .then(response => {
+                        if (!response.ok) {
+						throw Error(response.statusText);
+					}
+                        return response.json()})
 					.then(data => {
 						console.log("data", data);
 						setStore({ planets: data.results });
