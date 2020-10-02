@@ -4,6 +4,22 @@ const getState = ({ getStore, setStore }) => {
 			favorites: []
 		},
 		actions: {
+            loadPeople: () => {
+				fetch("https://swapi.dev/api/people/")
+					.then(response => response.json())
+					.then(data => {
+						console.log("data", data);
+						setStore({ characters: data.results });
+					});
+			},
+			loadPlanets: () => {
+				fetch("https://swapi.dev/api/planets/")
+					.then(response => response.json())
+					.then(data => {
+						console.log("data", data);
+						setStore({ planets: data.results });
+					});
+			},
 			addToFavorites: name => {
 				var tempStore = getStore();
 				var newFavorite = {
