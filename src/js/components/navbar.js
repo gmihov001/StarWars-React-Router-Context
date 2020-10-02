@@ -47,10 +47,12 @@ export class Navbar extends React.Component {
 									aria-labelledby="navbarDropdown">
 									{store.favorites.length > 0
 										? store.favorites.map((elm, index) => (
-												<li key={index} className="dropdown-item">
+												<li
+													key={index}
+													className="dropdown-item d-flex align-items-center justify-content-between">
 													<Link to={`/details/${index + 1}`}>{elm.name}</Link>
 													<i
-														className="fas fa-backspace"
+														className="fas fa-backspace text-danger"
 														onClick={() => actions.deleteFromFavorites(elm)}
 													/>
 												</li>
