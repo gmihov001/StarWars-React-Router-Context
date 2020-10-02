@@ -50,7 +50,7 @@ export class Navbar extends React.Component {
 												<li key={index} className="dropdown-item">
 													<Link to={`/details/${index + 1}`}>{elm.name}</Link>
 													<i
-														className="fas fa-trash"
+														className="fas fa-backspace"
 														onClick={() => actions.deleteFromFavorites(elm)}
 													/>
 												</li>

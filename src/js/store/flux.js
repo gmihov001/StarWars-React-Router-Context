@@ -4,13 +4,14 @@ const getState = ({ getStore, setStore }) => {
 			favorites: []
 		},
 		actions: {
-            loadPeople: () => {
+			loadPeople: () => {
 				fetch("https://swapi.dev/api/people/")
-                    .then(response => {
-                        if (!response.ok) {
-						    throw Error(response.statusText);
-					    }
-                        return response.json()})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
 					.then(data => {
 						console.log("data", data);
 						setStore({ characters: data.results });
@@ -18,11 +19,12 @@ const getState = ({ getStore, setStore }) => {
 			},
 			loadPlanets: () => {
 				fetch("https://swapi.dev/api/planets/")
-                    .then(response => {
-                        if (!response.ok) {
-						throw Error(response.statusText);
-					}
-                        return response.json()})
+					.then(response => {
+						if (!response.ok) {
+							throw Error(response.statusText);
+						}
+						return response.json();
+					})
 					.then(data => {
 						console.log("data", data);
 						setStore({ planets: data.results });
