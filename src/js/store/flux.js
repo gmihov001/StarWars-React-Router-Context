@@ -23,11 +23,6 @@ const getState = ({ getStore, setStore }) => {
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
-			loadSomeData: () => {
-				/**
-					fetch().then().then(data => setStore({ "foo": data.bar }))
-				*/
-			},
 			changeColor: (index, color) => {
 				//get the store
 				const store = getStore();
