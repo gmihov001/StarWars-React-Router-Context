@@ -51,6 +51,7 @@ export class Navbar extends React.Component {
 													key={index}
 													className="dropdown-item d-flex align-items-center justify-content-between">
 													<Link to={`/details/${index + 1}`}>{elm.name}</Link>
+													&nbsp;&nbsp;
 													<i
 														className="fas fa-backspace text-danger"
 														onClick={() => actions.deleteFromFavorites(elm)}
