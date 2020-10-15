@@ -5,11 +5,22 @@
     overflow-x: auto;
     white-space: nowrap;
 }
-.scroller ::-webkit-scrollbar-thumb {
+.scroller::-webkit-scrollbar {
+    height: 10px;
+}
+.scroller::-webkit-scrollbar-track {
     border-radius: 20px;
+}
+.scroller::-webkit-scrollbar-thumb {
+    background-color: blue;    
+    border-radius: 20px;      
+    border: 3px solid orange;  
 }
 .fas.fa-trash {
     cursor: pointer;
     float: right;
     margin-top: 2px;
+}
+body {
+    background:rgb(30, 30, 30);
 }
