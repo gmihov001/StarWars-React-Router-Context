@@ -1,3 +1,15 @@
-/* 
-    General Styles
-*/
+.header {
+    img{max-height: 50px;}
+}
+.scroller {
+    overflow-x: auto;
+    white-space: nowrap;
+}
+.scroller ::-webkit-scrollbar-thumb {
+    border-radius: 20px;
+}
+.fas.fa-trash {
+    cursor: pointer;
+    float: right;
+    margin-top: 2px;
+}
