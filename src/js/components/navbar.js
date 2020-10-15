@@ -15,7 +15,7 @@ export class Navbar extends React.Component {
 		let show = "";
 		if (this.state.clickedDropDown) show = "show";
 		return (
-			<nav className="navbar navbar-light header d-flex justify-content-between bg-light">
+			<nav className="navbar navbar-light header d-flex justify-content-between">
 				<Context.Consumer>
 					{({ actions, store }) => (
 						<div className="container">

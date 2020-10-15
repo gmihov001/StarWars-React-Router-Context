@@ -9,12 +9,12 @@
     height: 10px;
 }
 .scroller::-webkit-scrollbar-track {
-    border-radius: 20px;
+    background-color: lightgray;
 }
 .scroller::-webkit-scrollbar-thumb {
-    background-color: blue;    
-    border-radius: 20px;      
-    border: 3px solid orange;  
+    background-color: gray;    
+    border-radius: 15px;      
+    //border: 3px solid orange;  
 }
 .fas.fa-trash {
     cursor: pointer;
@@ -23,4 +23,15 @@
 }
 body {
     background:rgb(30, 30, 30);
+}
+h3 {
+    color: pink;
+    font-weight: 300;
+}
+.navbar {
+    background-color: black;
+}
+.card {
+    background-color: rgb(50,50,50);
+    color: white;
 }
