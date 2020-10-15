@@ -40,7 +40,7 @@ export class Navbar extends React.Component {
 											clickedDropDown: !this.state.clickedDropDown
 										})
 									}>
-									Favorites <span className="badge badge-secondary">{store.favorites.length}</span>
+									FAVORITES <span className="badge badge-secondary">{store.favorites.length}</span>
 								</button>
 								<div
 									className={store.favorites.length > 0 ? "dropdown-menu " + show : "d-none"}
