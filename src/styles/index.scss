@@ -37,11 +37,24 @@ h4 {
     background-color: black;
 }
 .card {
-    background-color: rgb(50,50,50);
+    background-color: #202727;
     color: white;
     border-radius: 10px;
     img {
         border-radius: 10px 10px 0 0;
         border-bottom: 2px solid hotpink; 
     }
+}
+.learn-more {
+    color: hotpink;
+}
+.faves {
+    color: lightgray;
+}
+.dropdown-menu {
+    background-color: black;
+    color:lightgray;
+}
+.dropdown-item {
+    color: lightgray;
 }

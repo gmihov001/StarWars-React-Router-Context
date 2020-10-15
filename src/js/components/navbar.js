@@ -28,7 +28,7 @@ export class Navbar extends React.Component {
 							</Link>
 							<a className={"nav-item dropdown " + (this.state.showDropdown ? "show" : "")}>
 								<button
-									className="btn btn-primary nav-link dropdown-toggle"
+									className="faves btn btn-outline-dark nav-link dropdown-toggle"
 									href="#"
 									id="navbarDropdown"
 									role="button"
@@ -53,7 +53,7 @@ export class Navbar extends React.Component {
 													<Link to={`/details/${index + 1}`}>{elm.name}</Link>
 													&nbsp;&nbsp;
 													<i
-														className="fas fa-backspace text-danger"
+														className="fas fa-backspace"
 														onClick={() => actions.deleteFromFavorites(elm)}
 													/>
 												</li>

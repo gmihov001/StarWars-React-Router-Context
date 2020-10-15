@@ -28,8 +28,8 @@ export const CharacterCard = props => {
 								character: props.character
 							}
 						}}>
-						<button href="#" className="btn  btn-outline-primary">
-							Learn more!
+						<button href="#" className="btn btn-outline-dark learn-more">
+							LEARN MORE
 						</button>
 					</Link>
 					<Context.Consumer>
