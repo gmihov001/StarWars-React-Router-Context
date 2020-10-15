@@ -13,7 +13,7 @@ body {
     height: 10px;
 }
 .scroller::-webkit-scrollbar-track {
-    background-color: lightgray;
+    background-color: darkgray;
     border-radius: 15px;
 }
 .scroller::-webkit-scrollbar-thumb {
@@ -29,8 +29,8 @@ body {
 body {
     background:rgb(20, 25, 25);
 }
-h3 {
-    color: pink;
+h4 {
+    color: lightgray;
     font-weight: 300;
 }
 .navbar {
@@ -39,4 +39,8 @@ h3 {
 .card {
     background-color: rgb(50,50,50);
     color: white;
+    border-radius: 10px;
+    img {
+        border-radius: 10px 10px 0 0;
+    }
 }
