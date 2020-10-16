@@ -7,14 +7,17 @@ export class Details extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			results: null
+			results: null,
+			redirect: false
 		};
 	}
 
 	componentDidMount = () => {
 		//const { handle } = this.props.match.params;
-		const { character } = this.props.location.state;
-		this.setState({ results: character });
+		const { data } = this.props.location.state;
+		this.setState({ results: data });
+		console.log(this.state.data);
+		console.log(this.state.results);
 
 		// fetch("https://swapi.co/api/people/" + this.props.match.params.id + "?format=json")
 		// 	.then(res => res.json())
@@ -34,9 +37,13 @@ export class Details extends React.Component {
 	render() {
 		// if (!this.state.results) return <p className="p-5">Loading...</p>;
 		console.log("Results: ", this.state.results);
+
+		let { results } = this.state;
+		console.log(results);
+
 		return (
 			<div className="container">
-				<div className="row">
+				<div className="row mt-5">
 					<div className="col-6">
 						<img
 							src="https://lumiere-a.akamaihd.net/v1/images/vicruls-sythe-main_e404bc44.jpeg"
@@ -44,37 +51,37 @@ export class Details extends React.Component {
 						/>
 					</div>
 					<div className="col-6">
-						<div className="text-center m-3">
-							<h2>{this.props.location.state.character.name}</h2>
-							<p>Sed ut perspiciatis</p>
+						<div className="text-center text-light m-3">
+							<h2>{results ? results[0].propvalue : "Name"}</h2>
+							<p>{results ? results[9].propvalue : "Films"}</p>
 						</div>
 					</div>
 				</div>
-				<div className="row ml-1 mr-1 background border-top border-danger">
-					<div className="col-12 d-flex justify-content-between text-danger text-center">
+				<div className="row ml-1 mr-1 background border-top border-light">
+					<div className="col-12 d-flex justify-content-between text-light text-center">
 						<div className="appearances p-2 m-3">
 							<h6>Name</h6>
-							<p>{this.props.location.state.character.name}</p>
+							<p />
 						</div>
 						<div className="affiliations m-3 p-2">
-							<h6>Birth Year</h6>
-							<p className="text-center">{this.props.location.state.character.birth_year}</p>
+							<h6>{results ? results[6].propname : "Attribute"}</h6>
+							<p className="text-center">{results ? results[6].propvalue : "..."}</p>
 						</div>
 						<div className="locations p-2 m-3">
 							<h6>Gender</h6>
-							<p>{this.props.location.state.character.gender}</p>
+							<p />
 						</div>
 						<div className="gender p-2 m-3">
 							<h6>Height</h6>
-							<p>{this.props.location.state.character.height}</p>
+							<p />
 						</div>
 						<div className="dimensions p-2 m-3">
 							<h6>Skin Color</h6>
-							<p className="text-center">{this.props.location.state.character.skin_color}</p>
+							<p className="text-center" />
 						</div>
 						<div className="species p-2 m-3">
 							<h6>Eye Color</h6>
-							<p>{this.props.location.state.character.eye_color}</p>
+							<p />
 						</div>
 					</div>
 				</div>

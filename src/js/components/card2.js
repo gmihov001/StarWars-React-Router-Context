@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 
 export const Card2 = props => {
-	console.log(props);
 	var data;
 	if (props.planet) {
 		data = props.planet;
@@ -16,7 +15,7 @@ export const Card2 = props => {
 	}
 	let propArr = [];
 	for (let property in data) {
-		propArr.push([[property], data[property]]);
+		propArr.push({ propname: property, propvalue: data[property] });
 	}
 	console.log(propArr);
 	return (
@@ -27,20 +26,20 @@ export const Card2 = props => {
 				alt="..."
 			/>
 			<div className="card-body">
-				<h5 className="card-title">{propArr[0][1]}</h5>
+				<h5 className="card-title">{propArr[0].propvalue}</h5>
 				<p className="card-text">
-					{propArr[4][0]}: {propArr[4][1]}
+					{propArr[4].propname}: {propArr[4].propvalue}
 					<br />
-					{propArr[6][0]}: {propArr[6][1]}
+					{propArr[6].propname}: {propArr[6].propvalue}
 					<br />
-					{propArr[7][0]}: {propArr[7][1]}
+					{propArr[7].propname}: {propArr[7].propvalue}
 				</p>
 				<div className="d-flex justify-content-between">
 					<Link
 						to={{
 							pathname: `/details/${props.index + 1}`,
 							state: {
-								character: props.character
+								data: propArr
 							}
 						}}>
 						<button href="#" className="btn btn-outline-dark learn-more">
@@ -50,7 +49,6 @@ export const Card2 = props => {
 					<Context.Consumer>
 						{({ actions, store }) => {
 							const isFav = store.favorites.find(f => f.name == props.character.name);
-							console.log("isFav: ", isFav);
 							return (
 								<button
 									type="button"
