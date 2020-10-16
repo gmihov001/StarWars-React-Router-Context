@@ -2,6 +2,7 @@ import React from "react";
 import { CharacterCard } from "../components/card";
 import { PlanetCard } from "../components/planet_card";
 import PropTypes from "prop-types";
+import { Card2 } from "../components/card2";
 
 export class Home extends React.Component {
 	constructor() {
@@ -45,7 +46,8 @@ export class Home extends React.Component {
 					<h4 className="m-3">CHARACTERS</h4>
 					<div className="card-columns">
 						{this.state.characters.map((elem, index) => {
-							return <CharacterCard key={index} character={elem} index={index} />;
+							return <Card2 key={index} character={elem} index={index} />;
+							// return <CharacterCard key={index} character={elem} index={index} />;
 						})}
 					</div>
 				</div>
@@ -53,7 +55,8 @@ export class Home extends React.Component {
 					<h4 className="m-3">PLANETS</h4>
 					<div className="card-columns">
 						{this.state.planets.map((elem, index) => {
-							return <PlanetCard className="textCustom" key={index} planet={elem} index={index} />;
+							return <Card2 className="textCustom" key={index} planet={elem} index={index} />;
+							// return <PlanetCard className="textCustom" key={index} planet={elem} index={index} />;
 						})}
 					</div>
 				</div>
