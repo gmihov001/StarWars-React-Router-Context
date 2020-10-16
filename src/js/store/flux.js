@@ -28,7 +28,8 @@ const getState = ({ getStore, setStore }) => {
 					.then(data => {
 						console.log("data", data);
 						setStore({ planets: data.results });
-					});
+					})
+					.catch(error => console.log(error));
 			},
 			addToFavorites: name => {
 				var tempStore = getStore();
