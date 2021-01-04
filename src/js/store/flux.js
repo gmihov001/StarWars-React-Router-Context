@@ -33,7 +33,7 @@ const getState = ({ getStore, setStore }) => {
 			},
 			addToFavorites: name => {
 				var tempStore = getStore();
-				if (tempStore.favorites.includes(name)) {
+				if (!tempStore.favorites.includes(name)) {
 					var newFavorite = {
 						name: name
 					};
