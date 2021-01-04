@@ -3,6 +3,7 @@ import { Context } from "../store/appContext";
 import { CharacterCard } from "../components/card";
 import { PlanetCard } from "../components/planet_card";
 import PropTypes from "prop-types";
+// import { Card } from "../components/card";
 import { Card2 } from "../components/card2";
 
 export class Home extends React.Component {

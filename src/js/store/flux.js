@@ -33,11 +33,13 @@ const getState = ({ getStore, setStore }) => {
 			},
 			addToFavorites: name => {
 				var tempStore = getStore();
-				var newFavorite = {
-					name: name
-				};
-				tempStore.favorites.push(newFavorite);
-				setStore({ tempStore });
+				if (tempStore.favorites.includes(name)) {
+					var newFavorite = {
+						name: name
+					};
+					tempStore.favorites.push(newFavorite);
+					setStore({ tempStore });
+				}
 			},
 			deleteFromFavorites: elm => {
 				var { favorites } = getStore();
