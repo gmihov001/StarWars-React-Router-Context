@@ -7,7 +7,6 @@ import { Home } from "./views/home";
 import { Demo } from "./views/demo";
 import { Single } from "./views/single";
 import { Details } from "./views/details";
-import { PlanetDetails } from "./views/planet_details";
 import { Navbar } from "./components/navbar";
 import { Footer } from "./components/footer";
 
@@ -43,8 +42,6 @@ class Layout extends React.Component {
 							</Route>
 
 							<Route path="/details/:id" component={Details} />
-
-							<Route path="/planet_details" component={PlanetDetails} />
 
 							<Route exact path="/single/:theid">
 								<Single />
