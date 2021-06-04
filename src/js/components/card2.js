@@ -35,13 +35,15 @@ export const Card2 = props => {
 					</Link>
 					<Context.Consumer>
 						{({ actions, store }) => {
-							// const isFav = store.favorites.includes(props.character.name);
+							const isFav = store.favorites.find(f => f.entity.name == props.entity.name);
+							console.log("isFave", isFav);
+
 							return (
 								<button
 									type="button"
 									className="btn btn-outline-warning"
-									onClick={() => actions.addToFavorites(props)}>
-									<i className="fas fa-heart" />
+									onClick={isFav ? null : () => actions.addToFavorites(props)}>
+									{isFav ? <i className="fas fa-heart" /> : <i className="far fa-heart" />}
 								</button>
 							);
 						}}
